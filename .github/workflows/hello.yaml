@@ -1,0 +1,17 @@
+# .github/workflows/hello.yml
+name: Hello # ワークフローの表示名（省略可）
+
+on:
+  push: # ① いつ動くか（トリガー）
+  workflow_dispatch:
+
+jobs: # ② 何をするか
+  greet: # Job の ID（任意の名前）
+    runs-on: ubuntu-latest # ③ どこで動くか（Runner）
+    steps:
+      - name: あいさつする
+        run: |
+          echo "こんにちは"
+          echo "今日は$(date)"
+          echo "branch is ${{github.ref}}"
+          echo "actor is ${{github.actor}}"
